@@ -1,0 +1,14 @@
+PODS:
+  - HRAssert (0.1.0)
+
+DEPENDENCIES:
+  - HRAssert (from `../`)
+
+EXTERNAL SOURCES:
+  HRAssert:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  HRAssert: 31aa6e9533eeedc4747bfc715c705a4ce30dde5b
+
+COCOAPODS: 0.39.0

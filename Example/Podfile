@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'HRAssert_Example', :exclusive => true do
+  pod 'HRAssert', :path => '../'
+end
+
+target 'HRAssert_Tests', :exclusive => true do
+  pod 'HRAssert', :path => '../'
+
+  
+end
