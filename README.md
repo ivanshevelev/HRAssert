@@ -39,7 +39,7 @@ NSString *string = @"test";
 Protocol *copyingProtocol = @protocol(NSCopying);
 HRConformsToProtocolTypeAssert(copyingProtocol, string);
 ```
-In case of HRKindOfClassAssert, arguments can be instance, Class type or class name(like NSString).
+In case of HRKindOfClassAssert, arguments can be instance, Class type instance or class name(like NSString).
 
 In case of HRConformsToProtocolAssert "waiting" argument must be protocol name(like NSCopying) and "current" argument can be instance, Class type instance or class name(like NSString).
 
