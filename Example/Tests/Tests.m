@@ -63,5 +63,22 @@
     }
 }
 
+- (void)testConformsToProtocol {
+    @try {
+        NSString *string = @"testString";
+        Class stringClass = [string class];
+        
+        HRConformsToProtocolAssert(NSCopying, NSString);
+        HRConformsToProtocolAssert(NSCopying, string);
+        HRConformsToProtocolAssert(NSCopying, stringClass);
+        
+    } @catch (NSException *exception) {
+        NSLog(@"Exception: %@", exception);
+        XCTAssert(exception);
+    } @finally {
+        NSLog(@"Finnaly block");
+    }
+}
+
 @end
 
