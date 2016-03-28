@@ -7,6 +7,7 @@
 //
 
 @import XCTest;
+#import <HRAssert/HRAssert.h>
 
 @interface Tests : XCTestCase
 
@@ -26,9 +27,77 @@
     [super tearDown];
 }
 
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+- (void)testKindOfClassAssert {
+    @try {
+        NSString *string = @"testString";
+        NSMutableString *mutableString = [NSMutableString stringWithString:@"testMutableString"];
+        Class stringClass = [string class];
+        Class mutableStringClass = [string class];
+        
+        HRKindOfClassAssert(NSString, NSMutableString);
+        HRKindOfClassAssert(NSString, NSString);
+        HRKindOfClassAssert(NSString, string);
+        HRKindOfClassAssert(NSString, mutableStringClass);
+        HRKindOfClassAssert(NSString, stringClass);
+        HRKindOfClassAssert(NSString, mutableString);
+        
+        HRKindOfClassAssert(NSMutableString, string);
+        HRKindOfClassAssert(NSString, string);
+        HRKindOfClassAssert(string, string);
+        HRKindOfClassAssert(mutableStringClass, string);
+        HRKindOfClassAssert(stringClass, string);
+        HRKindOfClassAssert(mutableString, string);
+        
+        HRKindOfClassAssert(NSMutableString, stringClass);
+        HRKindOfClassAssert(NSString, stringClass);
+        HRKindOfClassAssert(string, stringClass);
+        HRKindOfClassAssert(mutableStringClass, stringClass);
+        HRKindOfClassAssert(stringClass, stringClass);
+        HRKindOfClassAssert(mutableString, stringClass);
+        
+    } @catch (NSException *exception) {
+        NSLog(@"Exception: %@", exception);
+        XCTAssert(exception);
+    } @finally {
+        NSLog(@"Finnaly block");
+    }
+}
+
+- (void)testConformsToProtocol {
+    @try {
+        NSString *string = @"testString";
+        Class stringClass = [string class];
+        
+        HRConformsToProtocolAssert(NSCopying, NSString);
+        HRConformsToProtocolAssert(NSCopying, string);
+        HRConformsToProtocolAssert(NSCopying, stringClass);
+        
+    } @catch (NSException *exception) {
+        NSLog(@"Exception: %@", exception);
+        XCTAssert(exception);
+    } @finally {
+        NSLog(@"Finnaly block");
+    }
+}
+
+- (void)testConformsToProtocolType {
+    @try {
+        
+        Protocol *copyingProtocol = @protocol(NSCopying);
+        
+        NSString *string = @"testString";
+        Class stringClass = [string class];
+        
+        HRConformsToProtocolTypeAssert(copyingProtocol, NSString);
+        HRConformsToProtocolTypeAssert(copyingProtocol, string);
+        HRConformsToProtocolTypeAssert(copyingProtocol, stringClass);
+        
+    } @catch (NSException *exception) {
+        NSLog(@"Exception: %@", exception);
+        XCTAssert(exception);
+    } @finally {
+        NSLog(@"Finnaly block");
+    }
 }
 
 @end

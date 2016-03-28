@@ -7,7 +7,7 @@
 //
 
 #import "HRViewController.h"
-#import "HRAssert.h"
+#import <HRAssert/HRAssert.h>
 
 @interface HRViewController ()
 
@@ -28,7 +28,7 @@
     Class stringClass = [NSString class];
     Class mutableStringClass = [NSMutableString class];
     
-    HRKindOfClassAssert(mutableStringClass, stringClass);
+    HRKindOfClassAssert(stringClass, mutableStringClass);
     
     Protocol *copyingProtocol = @protocol(NSCopying);
     HRConformsToProtocolTypeAssert(copyingProtocol, stringClass);
