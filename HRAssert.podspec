@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "HRAssert"
-  s.version          = "1.0"
+  s.version          = "1.1"
   s.summary          = "Custom assert defines."
 
   s.description      = "Custom assert defines. Check for isKindOfClass: and conformsProtocol:."
