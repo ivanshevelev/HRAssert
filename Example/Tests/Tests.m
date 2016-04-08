@@ -59,7 +59,7 @@
         NSLog(@"Exception: %@", exception);
         XCTAssert(exception);
     } @finally {
-        NSLog(@"Finnaly block");
+        NSLog(@"Finally block");
     }
 }
 
@@ -76,7 +76,7 @@
         NSLog(@"Exception: %@", exception);
         XCTAssert(exception);
     } @finally {
-        NSLog(@"Finnaly block");
+        NSLog(@"Finally block");
     }
 }
 
@@ -96,7 +96,7 @@
         NSLog(@"Exception: %@", exception);
         XCTAssert(exception);
     } @finally {
-        NSLog(@"Finnaly block");
+        NSLog(@"Finally block");
     }
 }
 
